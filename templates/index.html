@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>CRL - Centre de récolte local</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700&display=swap">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="navbar-container">
+        <a href="#" class="navbar-logo">CRL</a>
+        <ul class="navbar-menu">
+          <li class="navbar-item">
+            <a href="#">Accueil</a>
+          </li>
+          <li class="navbar-item">
+            <a href="{{ url_for('register') }}">Inscrivez-vous</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <section class="hero">
+      <div class="hero-container">
+        <h1 class="hero-heading">Bienvenue au Centre de Récoltes Local</h1>
+        <p class="hero-text">Nous connectons les producteurs locaux avec les consommateurs pour une alimentation plus saine, plus durable et plus juste.</p>
+        <a href="{{ url_for('register') }}" class="hero-button">REJOINGNEZ LE CRL</a>
+      </div>
+    </section>
+    <section class="producers">
+      <div class="producers-container">
+        <h2 class="producers-heading">Nos producteurs locaux</h2>
+        <ul class="producers-list">
+          {% for producer in producers %}
+            <li class="producer-item">
+              <div class="producer-info">
+                <h3 class="producer-name">{{ producer.first_name }} {{ producer.last_name }}</h3>
+                <p class="producer-type">{{ producer.production_type }}</p>
+                <p class="producer-harvest-date">{{ producer.harvest_date }}</p>
+                <p class="producer-location">{{ producer.location }}</p>
+              </div>
+              <div class="producer-image">
+                <img src="{{ url_for('static', filename='images/producer-1.png') }}" alt="Producteur">
+              </div>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </section>
+    <footer class="footer">
+      <div class="footer-container">
+        <p class="footer-text">© 2023 CRL - Centre de Récoltes Local. Tous droits réservés.</p>
+      </div>
+    </footer>
+  </body>
+</html>

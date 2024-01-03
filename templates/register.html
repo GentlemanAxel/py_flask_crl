@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Inscrivez-vous en tant que producteur</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/register-styles.css') }}">
+  </head>
+  <body>
+    <div class="register-container">
+      <h1 class="register-heading">Inscrivez-vous en tant que producteur</h1>
+      <form method="post" action="{{ url_for('register') }}" class="register-form">
+        <label for="first_name" class="register-label">Prénom</label>
+        <input type="text" name="first_name" class="register-input" required>
+        <label for="last_name" class="register-label">Nom</label>
+        <input type="text" name="last_name" class="register-input" required>
+        <label for="email" class="register-label">Email</label>
+        <input type="email" name="email" class="register-input" required>
+        <label for="password" class="register-label">Mot de passe</label>
+        <input type="password" name="password" class="register-input" required>
+        <label for="production_type" class="register-label">Type de production</label>
+        <input type="text" name="production_type" class="register-input" required>
+        <label for="harvest_date" class="register-label">Date de récolte</label>
+        <input type="date" name="harvest_date" class="register-input" required>
+        <label for="location" class="register-label">Localisation</label>
+        <input type="text" name="location" class="register-input" required>
+        <button type="submit" class="register-button">S'enregistrer</button>
+      </form>
+      <p class="register-text">En vous inscrivant, vous rejoignez notre communauté de producteurs locaux passionnés au sein du CRL (Centre de Récoltes Local). Vous pourrez ainsi faire connaître vos produits sur notre plateforme en ligne et toucher une clientèle plus large. Rejoignez-nous dès maintenant pour faire partie de cette avanture pour des bons produits !</p>
+    </div>
+  </body>
+</html>
